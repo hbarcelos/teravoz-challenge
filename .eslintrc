@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "prettier-standard",
+    "standard-jsx",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "standard"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "2018"
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    "camelcase": 0
+  }
+}

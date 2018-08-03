@@ -1,0 +1,13 @@
+{
+  "name": "judite",
+  "version": "0.1.0",
+  "description": "Automatic phone operator",
+  "author": "'' <''>",
+  "homepage": "",
+  "license": "Unlicense",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
