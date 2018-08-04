@@ -1,1 +1,1 @@
-export { default as redirect } from './redirect'
+export { default as reducer } from './reducer'
