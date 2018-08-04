@@ -12,5 +12,5 @@ webhookProducer(callEvents$)
 
 const port = process.env.SERVER_PORT || 3000
 server.listen(port, () => {
-  console.log('Server is listening on http://localhost:3000')
+  console.log(`Server is listening on http://localhost:${port}`)
 })
