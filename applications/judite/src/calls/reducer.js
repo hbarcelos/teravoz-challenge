@@ -1,10 +1,10 @@
 import events from './events.enum'
-import redirect from './actions/redirect'
+import delegate from './actions/delegate'
 import { repository } from '../customers'
 import service from './service'
 
 const actionMap = {
-  [events.STANDBY]: redirect({ repository, service })
+  [events.STANDBY]: delegate({ repository, service })
 }
 
 export default async function callEventReducer(callEvent) {

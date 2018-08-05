@@ -1,15 +1,15 @@
-export const destinations = {
+export const extensions = {
   NEW: '900',
   RETURNING: '901'
 }
 
-// redirect :: { repository, service } -> incommingCall -> void
-export default function redirect({ repository, service }) {
+// delegate :: { repository, service } -> incommingCall -> void
+export default function delegate({ repository, service }) {
   return async incommingCall => {
     const phoneNumber = incommingCall.their_number
     const customer = await repository.find(phoneNumber)
 
-    const destination = customer ? destinations.RETURNING : destinations.NEW
+    const destination = customer ? extensions.RETURNING : extensions.NEW
 
     if (!customer) {
       console.log(`New customer: ${phoneNumber}`)

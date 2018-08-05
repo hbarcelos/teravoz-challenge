@@ -1,6 +1,6 @@
 import test from 'ava'
 import td from 'testdouble'
-import setup, { destinations } from './redirect'
+import setup, { extensions } from './delegate'
 
 test.beforeEach(t => {
   const repository = td.object(['insert', 'find'])
@@ -24,7 +24,7 @@ test(`Should redirct new customer to destinations.NEW`, async t => {
   await subject(incommingCall)
 
   td.verify(repository.insert({ phoneNumber: incommingCall.their_number }))
-  td.verify(service.delegate(incommingCall, destinations.NEW))
+  td.verify(service.delegate(incommingCall, extensions.NEW))
   t.pass()
 })
 
@@ -38,6 +38,6 @@ test(`Should redirct returning customer to destinations.RETURNING`, async t => {
   await subject(incommingCall)
 
   td.verify(repository.insert(), { times: 0, ignoreExtraArgs: true })
-  td.verify(service.delegate(incommingCall, destinations.RETURNING))
+  td.verify(service.delegate(incommingCall, extensions.RETURNING))
   t.pass()
 })
