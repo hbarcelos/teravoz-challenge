@@ -10,7 +10,8 @@
     "dev:start": "babel-node src/index.js",
     "dev:start:watch": "nodemon --exec babel-node -e js src/index.js",
     "build": "babel src -d dist",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test": "ava"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -21,6 +22,7 @@
     "serr": "^1.0.1"
   },
   "devDependencies": {
+    "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
@@ -39,6 +41,20 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "nodemon": "^1.18.3",
-    "prettier": "^1.14.0"
+    "prettier": "^1.14.0",
+    "testdouble": "^3.8.1"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit",
+    "files": [
+      "src/**/*.test.{js,mjs}",
+      "!src/**/*.fixture.test.{js,mjs}"
+    ],
+    "source": [
+      "src/**/*.{js,jsx,mjs}"
+    ]
   }
 }
