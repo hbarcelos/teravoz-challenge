@@ -1,0 +1,19 @@
+version: '3'
+services:
+  teravoz-api:
+    build: ./applications/teravoz-api
+    ports:
+      - '3000:3000'
+    environment:
+      SERVER_PORT: '3000'
+      WEBHOOK_CONSUMER_URL: 'http://judite:3001/webhook'
+
+  judite:
+    build: ./applications/judite
+    ports:
+      - '3001:3001'
+    environment:
+      SERVER_PORT: '3001'
+      CALL_DELEGATE_URL: 'http://teravoz-api:3000/action'
+    volumes:
+      - ./applications/judite/data:/code/data

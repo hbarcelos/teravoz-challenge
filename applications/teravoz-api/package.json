@@ -8,7 +8,9 @@
   "main": "dist/index.js",
   "scripts": {
     "dev:start": "babel-node src/index.js",
-    "dev:start:watch": "nodemon --exec babel-node -e js src/index.js"
+    "dev:start:watch": "nodemon --exec babel-node -e js src/index.js",
+    "build": "babel src -d dist",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
